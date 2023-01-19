@@ -2,6 +2,6 @@
 
 ## Description:
 
-I created this website to as an additional resource to help aid in the learning of Japanese using interactive quizzes.
-Quizzes such as multiple choice to fill in the blank, and these quizzes be divided into different sections that correspond
-to the Genki I Textbook.
+The goal of this project is to provide Students learning Japanese with an additional resource to assist in their study of Japanese using Genki I. It will also allow students to create an account to track their quiz scores and progress.
+
+This website will offer interactive quizzes such as multiple choice to fill in the blank, and these will be divided into different sections that correspond to the Genki I Textbook.
