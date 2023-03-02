@@ -1,35 +1,37 @@
-import "../App.css";
 import React, { useState, useEffect } from "react";
-import { db } from "../firebase";
 import { collection, getDocs, where, query } from "firebase/firestore";
+import { db } from "../firebase";
 import { Link } from "react-router-dom";
 
-function QuizList() {
-  const [chapters, setChapters] = useState([]);
+const QuizList = () => {
+  const [chapterList, setChapterList] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const q = query(collection(db, "quizlist", "quiz", "Chapters"));
-      const querySnapshot = await getDocs(q);
-      setChapters(
-        querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-      );
+    const getChapterList = async () => {
+      const chapterRef = collection(db, "quizlist", "quiz", "Chapters");
+      const chapterQuery = query(chapterRef);
+      const snapshot = await getDocs(chapterQuery);
+      const chapterData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setChapterList(chapterData);
     };
-    fetchData();
+    getChapterList();
   }, []);
 
   return (
     <div>
       <h1>Japanese Quiz</h1>
       <ul>
-        {chapters.map((chapter) => (
+        {chapterList.map((chapter) => (
           <li key={chapter.id}>
-            <Link to={`/quizview/${chapter.id}`}>{chapter.name}</Link>
+            <Link to={`/quizview/${chapter.id}`}>{chapter.id}</Link>
           </li>
         ))}
       </ul>
     </div>
   );
-}
+};
 
 export default QuizList;
