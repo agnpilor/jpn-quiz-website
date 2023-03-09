@@ -1,17 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import FillInTheBlankQuiz from "./components/FillInTheBlankQuiz";
+import Home from "./components/Home";
 import QuizResults from "./components/QuizResults";
 import QuizList from "./components/QuizList";
 import QuizView from "./components/QuizView";
+import About from "./components/About";
+import Resources from "./components/Resources";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/quizlist" element={<QuizList />} />
-        <Route path="/quizview/:quizId" component={QuizView} />
-        <Route path="/quizresults/:quizId" component={QuizResults} />
+        <Route path="/" element={<Home />} />
+        <Route path="/quizzes" element={<QuizList />} />
+        <Route path="/quizview/:chapterId" element={<QuizView />} />
+        <Route path="/quizresults" element={<QuizResults />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/resources" element={<Resources />} />
       </Routes>
     </Router>
   );

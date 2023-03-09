@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d89986;
+  padding: 30px 102px;
+  font-family: "Dosis", sans-serif;
+}
+
+.home-banner-left img {
+  width: 120%;
+}
+
+.home-banner-right {
+  max-width: 45%;
+}
+
+.home-banner-right h1 {
+  font-size: 40px;
+  font-weight: 800;
+  padding-bottom: 20px;
+}
+
+.home-banner-right p {
+  font-size: 22px;
+  color: black;
+}

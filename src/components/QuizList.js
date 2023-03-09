@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { collection, getDocs, where, query } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import "../styles/QuizList.css";
 
 const QuizList = () => {
   const [chapterList, setChapterList] = useState([]);
@@ -22,14 +25,18 @@ const QuizList = () => {
 
   return (
     <div>
-      <h1>Japanese Quiz</h1>
-      <ul>
-        {chapterList.map((chapter) => (
-          <li key={chapter.id}>
-            <Link to={`/quizview/${chapter.id}`}>{chapter.id}</Link>
-          </li>
-        ))}
-      </ul>
+      <Navbar />
+      <div className="quizlist-body">
+        <h1>Quiz List:</h1>
+        <ul>
+          {chapterList.map((chapter) => (
+            <li key={chapter.id}>
+              <Link to={`/quizview/${chapter.id}`}>{chapter.id}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <Footer />
     </div>
   );
 };

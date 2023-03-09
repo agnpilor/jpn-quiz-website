@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.about-body {
+  font-family: "Dosis", sans-serif;
+  padding: 30px 102px;
+}
+
+.about-body h1 {
+  font-size: 48px;
+  padding-bottom: 30px;
+}
+
+.about-body p {
+  font-size: 23px;
+}
+
+.about-body p {
+  padding-bottom: 40px;
+}
+
+.social-icons {
+  margin-right: 30px;
+  width: 50px;
+}
