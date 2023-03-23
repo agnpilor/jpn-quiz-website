@@ -7,7 +7,7 @@ import QuizSlider from "./QuizSlider";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-body">
       <Navbar />
       <div className="home-banner">
         <div className="home-banner-left">

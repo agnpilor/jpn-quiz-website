@@ -6,6 +6,7 @@ import QuizList from "./components/QuizList";
 import QuizView from "./components/QuizView";
 import About from "./components/About";
 import Resources from "./components/Resources";
+import Login from "./components/Login"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/quizresults" element={<QuizResults />} />
         <Route path="/about" element={<About />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );

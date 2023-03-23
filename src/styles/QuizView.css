@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+  
+  .quizview-body {
+    font-family: "Dosis", sans-serif;
+    padding: 30px 102px;
+    min-height: 100vh;
+    text-align: center;
+  }
+
+  button {
+    background-color: #F9D698;
+    border: 0px;
+    padding: 15px;
+    border-radius: 6px;
+  }
+
+  button:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  .name-container {
+    margin-bottom: 30px;
+  }
+  
+  input[name="name"] {
+    width: 40%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .question-container {
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 10px;
+    }
+
+    .question-number {
+      font-style: italic;
+      font-size: 20px;
+      padding-right: 10px;
+    }
+
+    .question {
+      font-weight: bold;
+    }
+
+    input[name="answer"] {
+      width: 40%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      margin: 20px 0px 20px 0px;
+    }

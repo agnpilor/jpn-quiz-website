@@ -27,7 +27,7 @@ body {
   padding: 30px 102px;
   font-size: 20px;
   font-family: "Sulphur Point", sans-serif;
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   width: 100%;
 }

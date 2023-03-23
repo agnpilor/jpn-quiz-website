@@ -14,7 +14,7 @@
 }
 
 .home-banner-left img {
-  width: 120%;
+  width: 110%;
 }
 
 .home-banner-right {
@@ -28,6 +28,7 @@
 }
 
 .home-banner-right p {
-  font-size: 22px;
+  font-size: 21px;
   color: black;
+  text-align: center;
 }

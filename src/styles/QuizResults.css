@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+  
+  .quiz-results {
+    font-family: "Dosis", sans-serif;
+    padding: 30px 102px;
+    min-height: 100vh;
+    text-align: center;
+  }

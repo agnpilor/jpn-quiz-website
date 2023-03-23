@@ -7,10 +7,22 @@
 .quizlist-body {
   font-family: "Dosis", sans-serif;
   padding: 30px 102px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 .quizlist-body li {
   list-style-type: none;
+  font-size: 25px;
+}
+
+.quizlist-body li:not(:last-child) {
+  padding-bottom: 15px;
 }
 
 a {

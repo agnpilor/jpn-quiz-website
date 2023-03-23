@@ -7,4 +7,5 @@
 .resources-body {
   font-family: "Dosis", sans-serif;
   padding: 30px 102px;
+  min-height: 100vh;
 }
