@@ -7,20 +7,36 @@ import Navbar from "./Navbar";
 import "../styles/QuizList.css";
 
 const QuizList = () => {
-  const [chapterList, setChapterList] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const getChapterList = async () => {
-      const chapterRef = collection(db, "quizlist", "quiz", "Chapters");
-      const chapterQuery = query(chapterRef);
-      const snapshot = await getDocs(chapterQuery);
-      const chapterData = snapshot.docs.map((doc) => ({
+    const getCategories = async () => {
+      const categoriesRef = collection(db, "Categories");
+      const snapshot = await getDocs(categoriesRef);
+      const categoriesData = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
+        quizzes: [],
       }));
-      setChapterList(chapterData);
+    
+
+      for (const category of categoriesData) {
+        const quizzesRef = collection(db, "Categories", category.id, "quizlist");
+        const quizzesSnapshot = await getDocs(quizzesRef);
+    
+        quizzesSnapshot.forEach((quizDoc) => {
+          const quizData = quizDoc.data();
+          category.quizzes.push({
+            id: quizDoc.id,
+            name: quizData.name,
+          });
+        });
+      }
+    
+      setCategories(categoriesData);
     };
-    getChapterList();
+    
+    getCategories();
   }, []);
 
   return (
@@ -28,13 +44,18 @@ const QuizList = () => {
       <Navbar />
       <div className="quizlist-body">
         <h1>Quiz List:</h1>
-        <ul>
-          {chapterList.map((chapter) => (
-            <li key={chapter.id}>
-              <Link to={`/quizview/${chapter.id}`}>{chapter.id}</Link>
-            </li>
-          ))}
-        </ul>
+        {categories.map((category) => (
+          <div key={category.id}>
+            <h2>{category.name}</h2>
+            <ul>
+              {category.quizzes.map((quiz) => (
+                <li key={quiz.id}>
+                  <Link to={`/quizview/${quiz.id}`}>{quiz.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
       <Footer />
     </div>

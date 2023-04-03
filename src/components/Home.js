@@ -3,7 +3,7 @@ import homebanner from "../images/home-banner.png";
 import "../styles/Home.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import QuizSlider from "./QuizSlider";
+
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <Navbar />
       <div className="home-banner">
         <div className="home-banner-left">
-          <img src={homebanner} alt="image" />
+          <img src={homebanner} alt="home banner" />
         </div>
         <div className="home-banner-right">
           <h1>Learn Japanese now!</h1>
