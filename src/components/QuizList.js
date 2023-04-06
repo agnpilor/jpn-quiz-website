@@ -7,36 +7,20 @@ import Navbar from "./Navbar";
 import "../styles/QuizList.css";
 
 const QuizList = () => {
-  const [categories, setCategories] = useState([]);
+  const [chapterList, setChapterList] = useState([]);
 
   useEffect(() => {
-    const getCategories = async () => {
-      const categoriesRef = collection(db, "Categories");
-      const snapshot = await getDocs(categoriesRef);
-      const categoriesData = snapshot.docs.map((doc) => ({
+    const getChapterList = async () => {
+      const chapterRef = collection(db, "quizlist", "quiz", "Chapters");
+      const chapterQuery = query(chapterRef);
+      const snapshot = await getDocs(chapterQuery);
+      const chapterData = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
-        quizzes: [],
       }));
-    
-
-      for (const category of categoriesData) {
-        const quizzesRef = collection(db, "Categories", category.id, "quizlist");
-        const quizzesSnapshot = await getDocs(quizzesRef);
-    
-        quizzesSnapshot.forEach((quizDoc) => {
-          const quizData = quizDoc.data();
-          category.quizzes.push({
-            id: quizDoc.id,
-            name: quizData.name,
-          });
-        });
-      }
-    
-      setCategories(categoriesData);
+      setChapterList(chapterData);
     };
-    
-    getCategories();
+    getChapterList();
   }, []);
 
   return (
@@ -44,18 +28,14 @@ const QuizList = () => {
       <Navbar />
       <div className="quizlist-body">
         <h1>Quiz List:</h1>
-        {categories.map((category) => (
-          <div key={category.id}>
-            <h2>{category.name}</h2>
-            <ul>
-              {category.quizzes.map((quiz) => (
-                <li key={quiz.id}>
-                  <Link to={`/quizview/${quiz.id}`}>{quiz.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <ul>
+          {chapterList.map((chapter) => (
+            <li key={chapter.id}>
+              <Link to={`/quizview/${chapter.id}`}>{chapter.id}</Link>
+              <div className="description">{chapter.description}</div>
+            </li>
+          ))}
+        </ul>
       </div>
       <Footer />
     </div>
