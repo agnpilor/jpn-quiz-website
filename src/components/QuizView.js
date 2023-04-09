@@ -5,6 +5,7 @@ import { db } from "../firebase";
 import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ReactMarkdown from 'react-markdown';
 
 const QuizView = () => {
   const { chapterId } = useParams();
@@ -14,8 +15,12 @@ const QuizView = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(0);
+  const [title, setTitle] = useState('');
 
   const fetchQuestions = async () => {
+    const quizDoc = doc(db, "quizlist", "quiz", "Chapters", chapterId);
+    const quizDocData = await getDoc(quizDoc);
+    setTitle(quizDocData.id);
     const querySnapshot = await getDocs(
       collection(db, "quizlist", "quiz", "Chapters", chapterId, "questions")
     );
@@ -62,45 +67,22 @@ const QuizView = () => {
   const handlePrevQuestion = () => {
     setCurrentQuestion(currentQuestion - 1);
   };
-
-  // Render multiple choice UI if question has answer fields (answerA, answerB, etc.)
-  const renderMultipleChoiceUI = () => {
-    const currentQuestionData = questions[currentQuestion];
-    const answerFields = ["answerA", "answerB", "answerC", "answerD"]; // Update with appropriate answer fields
-    return (
-      <div className="multiple-choice">
-        <h2>Choose the correct answer:</h2>
-        <ul>
-          {answerFields.map((field, index) => (
-            <li key={index}>
-              <input
-                type="radio"
-                id={field}
-                name="answer"
-                value={field}
-                checked={userAnswers[currentQuestion] === field}
-                onChange={handleInputChange}
-              />
-              <label htmlFor={field}>x
-                {currentQuestionData[field]}
-              </label>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  };
-
+  
+  // const components = {
+  //   strong: (props) => <strong style={{ color: "red" }}>{props.children}</strong>,
+  // };
   return (
     <div>
       <Navbar />
-      <div className="fill-in-the-blank">
-        <h1>Quiz</h1>
+      <div className="quiz-container">
+        <h1>{title}</h1>
         <form onSubmit={handleSubmit}>
           <div className="question-container">
             <p>
-              Question {currentQuestion + 1}:{" "}
-              {questions[currentQuestion]?.question}
+              <strong>Question {currentQuestion + 1}:{" "}</strong>
+              <ReactMarkdown>
+                {questions[currentQuestion]?.question.toString().replace(",", "")}
+              </ReactMarkdown>
             </p>
             {questions[currentQuestion]?.answerA ? (
               <div>
