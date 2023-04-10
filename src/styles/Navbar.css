@@ -7,69 +7,39 @@
 .navbar {
   display: flex;
   align-items: center;
-  font-family: "Unica One", cursive;
   justify-content: space-between;
+  font-family: "Unica One", cursive;
   background-color: #f2bea0;
-  padding: 0 100px 0px 100px;
+  padding: 0 200px 0px 200px;
   height: 130px;
 }
 
 .navbar-left {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: 25px;
 }
 
-.navbar-left li {
-  list-style-type: none;
-  display: inline;
-  vertical-align: middle;
-}
-
-.navbar-left li:not(:last-child) {
-  padding-right: 30px;
-}
-
-.navbar-left a:link {
-  text-decoration: none;
-  color: black;
-}
-
-.navbar-left a:hover {
-  color: red;
-}
-
-/* change hover color, link and add color for current link */
-
-.navbar-middle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.navbar-middle img {
+.logo {
   display: block;
   margin: 0 auto;
-  width: 200px;
+  width: 250px;
 }
 
 .navbar-right {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  text-align: right;
 }
 
-.navbar-right button {
-  background: #f9d698;
-  border-radius: 6px;
-  padding: 10px 30px 10px 30px;
-  border: none;
-  font-family: "Unica One", cursive;
-  font-size: 25px;
+.navbar-right {
+  font-size:  33px;
 }
 
-.navbar-right button:not(:last-child) {
-  margin-right: 50px;
+.navbar-right a:hover,
+  .nav-active {
+    color: #e97e5d;
+  }
+
+.navbar a:not(:last-child) {
+  margin-right: 60px;
 }
+
+
+

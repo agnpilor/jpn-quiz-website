@@ -1,34 +1,110 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.home-banner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #d89986;
-  padding: 30px 102px;
   font-family: "Dosis", sans-serif;
 }
+.home-banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #d89986;
+}
 
-.home-banner-left img {
-  width: 110%;
+.home-banner-left {
+  width: 50%;
+  padding: 10rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-banner-left h1 {
+  font-size: 50px;
+}
+
+.home-banner-left p {
+  font-size: 25px;
 }
 
 .home-banner-right {
-  max-width: 45%;
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.home-banner-right h1 {
-  font-size: 40px;
+.home-banner img {
+  max-width: 60%;
+  height: auto;
+}
+
+.kuizu-icons {
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 0px;
+  box-sizing: border-box;
+}
+
+.kuizu-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kuizu-icon-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+  border: 3px solid #d89986;
+}
+
+
+.kuizu-icon img {
+  width: 65%;
+}
+
+.kuizu-icon h3 {
   font-weight: 800;
-  padding-bottom: 20px;
+  font-size: 25px;
+  padding: 20px 0px;
 }
 
-.home-banner-right p {
-  font-size: 21px;
-  color: black;
+.kuizu-icon p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  width: 50%;
   text-align: center;
+  padding: 0px;
+  margin: 0px;
 }
+
+
+/* Media queries for tablet and phone view */
+@media only screen and (max-width: 768px) {
+  .home-banner {
+    flex-direction: column;
+  }
+  
+  .home-banner-left,
+  .home-banner-right {
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .home-banner img {
+    max-width: 80%;
+    margin-bottom: 2rem;
+  }
+  
+  .home-banner-left h1 {
+    margin-bottom: 1rem;
+  }
+}
+
+
