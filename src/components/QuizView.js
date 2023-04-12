@@ -5,7 +5,6 @@ import { db } from "../firebase";
 import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import ReactMarkdown from 'react-markdown';
 
 const QuizView = () => {
   const { chapterId } = useParams();
@@ -16,12 +15,14 @@ const QuizView = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(0);
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
 
   const fetchQuestions = async () => {
     const quizDoc = doc(db, "quizlist", "quiz", "Chapters", chapterId);
     const quizDocData = await getDoc(quizDoc);
     setTitle(quizDocData.id);
+    setDescription(quizDocData.data().description);
     const querySnapshot = await getDocs(
       collection(db, "quizlist", "quiz", "Chapters", chapterId, "questions")
     );
@@ -80,18 +81,23 @@ const QuizView = () => {
   //   strong: (props) => <strong style={{ color: "red" }}>{props.children}</strong>,
   // };
   return (
-    <div>
+    <div class>
       <Navbar />
       <div className="quiz-container">
-        <h1>{title}</h1>
-        {imageUrl && <img src={imageUrl} alt="Question" />}
+        <h1 className="quizview-title">{title}</h1>
+        <p className="quizview-description">{description}</p>
         <form onSubmit={handleSubmit}>
           <div className="question-container">
             <p>
-              <strong>Question {currentQuestion + 1}:{" "}</strong>
-              <ReactMarkdown>
-                {questions[currentQuestion]?.question.toString().replace(",", "")}
-              </ReactMarkdown>
+              <span className="question-number">Question {currentQuestion + 1}:{" "}</span>
+              {imageUrl && <img src={imageUrl} alt="Question" />}
+              <p
+  className="question"
+  dangerouslySetInnerHTML={{
+    __html: questions[currentQuestion]?.question.toString().replace(/,/g, "<br />"),
+  }}
+/>
+
             </p>
             {questions[currentQuestion]?.answerA ? (
               <div>
@@ -151,20 +157,20 @@ const QuizView = () => {
                 onChange={handleInputChange}
               />
             )}
-          </div>
-          <div className="button-container">
-            <button
+             <div className="button-container">
+            <button className="quiz-button"
               type="button"
               onClick={handlePrevQuestion}
               disabled={currentQuestion === 0}
             >
-              Prev Question
+              Previous
             </button>
-            <button type="submit">
+            <button className="quiz-button" type="submit">
               {currentQuestion === questions.length - 1
                 ? "Submit"
-                : "Next Question"}
+                : "Next"}
             </button>
+          </div>
           </div>
         </form>
       </div>

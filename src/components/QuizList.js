@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { collection, getDocs, where, query } from "firebase/firestore";
+import { collection, getDocs, query } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
@@ -27,7 +27,7 @@ const QuizList = () => {
     <div>
       <Navbar />
       <div className="quizlist-body">
-        <h1>Quiz List:</h1>
+        <h1 className="quizlist-title">Quiz List:</h1>
         <div className="quiz">
         <ul>
           {chapterList.map((chapter) => (

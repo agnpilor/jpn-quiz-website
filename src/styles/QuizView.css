@@ -1,57 +1,69 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-  }
+  margin: 0;
+  box-sizing: border-box;
+}
   
-  .quizview-body {
-    font-family: "Dosis", sans-serif;
-    padding: 30px 102px;
+  .quiz-container {
     min-height: 100vh;
-    text-align: center;
   }
 
-  button {
+  .quizview-title {
+    font-family: "Dosis", sans-serif;
+    font-weight: 800;
+    text-align: center;
+    padding: 50px 0px 30px;
+    font-size: 48px;
+  }
+
+  .quizview-description {
+    font-family: "Dosis", sans-serif;
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 50px;
+  }
+
+  .question-container {
+    background-color: #F2BEA0;
+    padding: 50px;
+    width: 50%;
+    margin: auto;
+    position: relative;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    font-family: "Unica One", cursive;
+  }
+
+    .question-number {
+      font-weight: bolder;
+      font-size: 30px;
+    }
+
+    .question {
+    padding: 40px 0px;
+    font-size: 25px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .button-container button {
+      flex-basis: 25%;
+    }
+    
+
+  .quiz-button {
     background-color: #F9D698;
     border: 0px;
     padding: 15px;
     border-radius: 6px;
+    font-family: "Dosis", sans-serif;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 22px;
+    padding: 12px 45px;
   }
-
-  button:not(:last-child) {
-    margin-right: 25px;
-  }
-
-  .name-container {
-    margin-bottom: 30px;
-  }
-  
-  input[name="name"] {
-    width: 40%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid;
-    border-radius: 6px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  }
-
-  .question-container {
-    font-size: 24px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 10px;
-    }
-
-    .question-number {
-      font-style: italic;
-      font-size: 20px;
-      padding-right: 10px;
-    }
-
-    .question {
-      font-weight: bold;
-    }
 
     input[name="answer"] {
       width: 40%;
@@ -62,3 +74,6 @@
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
       margin: 20px 0px 20px 0px;
     }
+
+
+
