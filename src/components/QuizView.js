@@ -16,6 +16,7 @@ const QuizView = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(0);
   const [title, setTitle] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
 
   const fetchQuestions = async () => {
     const quizDoc = doc(db, "quizlist", "quiz", "Chapters", chapterId);
@@ -29,7 +30,14 @@ const QuizView = () => {
       id: doc.id,
     }));
     setQuestions(data);
+  
+    if (data[currentQuestion]?.imageUrl) {
+      setImageUrl(data[currentQuestion]?.imageUrl);
+    } else {
+      setImageUrl('');
+    }
   };
+  
 
   useEffect(() => {
     fetchQuestions();
@@ -76,6 +84,7 @@ const QuizView = () => {
       <Navbar />
       <div className="quiz-container">
         <h1>{title}</h1>
+        {imageUrl && <img src={imageUrl} alt="Question" />}
         <form onSubmit={handleSubmit}>
           <div className="question-container">
             <p>

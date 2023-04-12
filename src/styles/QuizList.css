@@ -10,6 +10,7 @@
   min-height: 100vh;
 }
 
+
 h1 {
   font-size: 40px;
   text-align: center;
@@ -22,9 +23,28 @@ h1 {
 }
 
 .quizlist-body li:not(:last-child) {
-  padding-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 a {
   text-decoration: none;
 }
+
+.quizlist-container {
+  background-color: #F9D698;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.description {
+  padding-top: 10px;
+  font-size: 22px;
+}
+
+.quiz-link {
+color:black;
+text-decoration: underline;
+text-transform: uppercase;
+font-weight: bolder;
+}
+

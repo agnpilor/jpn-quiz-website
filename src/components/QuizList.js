@@ -28,14 +28,16 @@ const QuizList = () => {
       <Navbar />
       <div className="quizlist-body">
         <h1>Quiz List:</h1>
+        <div className="quiz">
         <ul>
           {chapterList.map((chapter) => (
-            <li key={chapter.id}>
-              <Link to={`/quizview/${chapter.id}`}>{chapter.id}</Link>
+            <li key={chapter.id} className="quizlist-container">
+              <Link className="quiz-link" to={`/quizview/${chapter.id}`}>{chapter.id}</Link>
               <div className="description">{chapter.description}</div>
             </li>
           ))}
-        </ul>
+          </ul>
+          </div>
       </div>
       <Footer />
     </div>

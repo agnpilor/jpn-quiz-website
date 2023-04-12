@@ -13,11 +13,11 @@ const About = () => {
       <div className="about-body">
         <h1>Welcome to Kuizu!</h1>
         <p>
-          I designed and developed this website using the latest web
-          technologies. Specifically, I used React to create the front-end and
-          Firestore, a flexible and scalable NoSQL database from Google Cloud
-          Platform, to store all the quiz data. This ensured that the website is
-          not only user-friendly but also highly efficient and reliable.
+          Hello! My name is Angel Pilor and I created this website for my final project
+          for my final year in the ITAS Web and Mobile Design Program at VIU. 
+          I used React to create the front-end and Firestore, a NoSQL database, to store
+          all the quiz data. By choosing this tech-stack I could ensure that the website
+          was not only user-friendly but also highly efficient and reliable. 
         </p>
         <p>
           The quizzes on Kuizu are based on the chapters in the Genki I
