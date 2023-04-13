@@ -197,4 +197,19 @@
   }
 }
 
+@media (max-width:447px) {
+  .home-banner-left {
+    padding: 5em;
+    
+  }
+
+  .home-banner-left h1 {
+    font-size: 2rem;
+  }
+
+  .home-banner-left p {
+    font-size: 22px;
+  }
+}
+
 

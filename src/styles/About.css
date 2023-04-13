@@ -22,3 +22,10 @@
   margin-right: 30px;
   width: 50px;
 }
+
+@media (max-width:510px) {
+
+.about-body {
+  padding: 30px 50px;
+}
+}

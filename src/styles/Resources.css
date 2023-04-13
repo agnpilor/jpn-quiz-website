@@ -23,3 +23,10 @@
   color: #D89986;
   text-transform: uppercase;
 }
+
+@media (max-width:510px) {
+
+  .resources-body {
+    padding: 30px 50px;
+  }
+  }
