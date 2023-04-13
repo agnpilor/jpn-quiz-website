@@ -17,12 +17,11 @@ const About = () => {
           for my final year in the ITAS Web and Mobile Design Program at VIU. 
           I used React to create the front-end and Firestore, a NoSQL database, to store
           all the quiz data. By choosing this tech-stack I could ensure that the website
-          was not only user-friendly but also highly efficient and reliable. 
+          was not only user-friendly but also highly efficient and reliable. The quizzes on Kuizu are based on the chapters in the Genki I
+          textbook, which is a beginner's guide to learning Japanese. 
         </p>
         <p>
-          The quizzes on Kuizu are based on the chapters in the Genki I
-          textbook, which is a beginner's guide to learning Japanese. As a
-          child, I have always been fascinated by Japanese culture and language,
+          As a child, I have always been fascinated by Japanese culture and language,
           and I've always wanted to learn it. This website is a testament to
           that interest, and it is a personal achievement for me to have created
           something that combines my passions in design and learning languages.

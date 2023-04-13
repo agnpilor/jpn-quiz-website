@@ -28,13 +28,13 @@
     width: 50%;
     margin: auto;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     border-radius: 15px;
     font-family: "Unica One", cursive;
   }
 
   .question-image {
-    width: 90%;
+    width: 75%;
     padding-bottom: 40px;
     display: block;
     margin: auto;
@@ -73,7 +73,7 @@
     padding: 12px 45px;
   }
 
-    input[name="answer"] {
+    .answer-box {
       width: 50%;
       padding: 10px;
       font-size: 16px;
@@ -82,6 +82,40 @@
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
       margin-bottom: 40px;
     }
+    
+    .answer-radio {
+      margin-right: 0px;
+    }
+    
+    .answer-label {
+      font-size: 23px;
+      margin-left: 20px;
+    }
 
+    .question-answers {
+      padding-bottom: 40px;
+    }
 
+    @media (max-width:1216px) {
+      .question-image {
+        width: 100%;
+      }
+    }
+
+    @media (max-width:1048px) {
+      .answer-box {
+        width: 80%
+      }
+    }
+
+    @media (max-width:900px) {
+      .button-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .button-container button:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
 

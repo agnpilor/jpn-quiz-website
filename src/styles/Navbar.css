@@ -1,5 +1,6 @@
 .navbar {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   font-family: "Unica One", cursive;
@@ -26,14 +27,64 @@
   font-size:  33px;
 }
 
+.navbar a {
+  color: rgb(82, 82, 82);
+}
+
 .navbar-right a:hover,
-  .nav-active {
-    color: #e97e5d;
-  }
+.nav-active {
+  color: #e97e5d;
+}
 
 .navbar a:not(:last-child) {
   margin-right: 60px;
 }
 
+@media (max-width: 1137px) {
 
+  .navbar {
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
 
+  .navbar-right {
+    display: flex;
+  }
+
+  
+}
+
+@media (max-width: 650px) {
+
+  .navbar-right {
+    font-size: 22px
+  }
+
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+  }
+
+  .navbar-right {
+    display: flex;
+    flex-direction: column;
+    font-size: 28px
+
+  }
+
+  .navbar-right a:not(:last-child){
+    margin-right: 0px!important;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+}

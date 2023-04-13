@@ -1,0 +1,33 @@
+.quizview-examples{
+    margin: auto;
+    text-align: center;
+    padding-bottom: 40px;
+    font-family: "Unica One", cursive;
+}
+
+.quizview-examples button {
+    background-color: #F9D698;
+    border: 0px;
+    padding: 15px;
+    border-radius: 6px;
+    font-family: "Dosis", sans-serif;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 22px;
+    padding: 12px 45px;
+}
+
+.quizview-body {
+    padding-top: 30px;
+}
+
+.quizview-body h3 {
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+
+.quizview-body p {
+    padding-bottom: 20px;
+    font-size: 20px;
+}
+

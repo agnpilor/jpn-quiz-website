@@ -6,7 +6,9 @@ import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ReactMarkdown from 'react-markdown';
-import Example from "./Examples";
+import Example from "./Examples"
+import Modal from 'react-modal';
+
 
 const QuizView = () => {
   const { chapterId } = useParams();
@@ -19,6 +21,15 @@ const QuizView = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  function openModal() {
+    setModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+  }
 
   const fetchQuestions = async () => {
     const quizDoc = doc(db, "quizlist", "quiz", "Chapters", chapterId);
@@ -79,81 +90,96 @@ const QuizView = () => {
     setCurrentQuestion(currentQuestion - 1);
   };
   
-  // const components = {
-  //   strong: (props) => <strong style={{ color: "red" }}>{props.children}</strong>,
-  // };
+
   return (
     <div>
       <Navbar />
       <div className="quiz-container">
         <h1 className="quizview-title">{title}</h1>
         <p className="quizview-description">{description}</p>
-        <div className="quizview-examples">
-          {Example}
-        </div>
+        <Example/>
         <form onSubmit={handleSubmit}>
           <div className="question-container">
-          {imageUrl && <img src={imageUrl} className="question-image" alt="Image Question" />}
+          <div>
+      {imageUrl && (
+        <div onClick={openModal}>
+          <img src={imageUrl} className="question-image" alt="Image Question" />
+        </div>
+      )}
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <img src={imageUrl} alt="Image Question" />
+      </Modal>
+    </div>
             <p><span className="question-number">Question {currentQuestion + 1}:{" "}</span></p>
             <p className="question">
-              <ReactMarkdown>
-                {questions[currentQuestion]?.question.toString().replace(",", "")}
-              </ReactMarkdown>
+{questions[currentQuestion]?.question && (
+  <ReactMarkdown>
+    {questions[currentQuestion].question
+      .toString()
+      .replace(",", "")}
+  </ReactMarkdown>
+)}
               </p>
+              <div className="multiplechoice-answers">
             {questions[currentQuestion]?.answerA ? (
-              <div>
-                <input
-                  type="radio"
-                  id="answerA"
-                  name="answer"
-                  value="answerA"
-                  checked={userAnswers[currentQuestion] === "answerA"}
-                  onChange={handleInputChange}
-                />
-                <label htmlFor="answerA">
-                  {questions[currentQuestion]?.answerA}
-                </label>
-                <br />
-                <input
-                  type="radio"
-                  id="answerB"
-                  name="answer"
-                  value="answerB"
-                  checked={userAnswers[currentQuestion] === "answerB"}
-                  onChange={handleInputChange}
-                />
-                <label htmlFor="answerB">
-                  {questions[currentQuestion]?.answerB}
-                </label>
-                <br />
-                <input
-                  type="radio"
-                  id="answerC"
-                  name="answer"
-                  value="answerC"
-                  checked={userAnswers[currentQuestion] === "answerC"}
-                  onChange={handleInputChange}
-                />
-                <label htmlFor="answerC">
-                  {questions[currentQuestion]?.answerC}
-                </label>
-                <br />
-                <input
-                  type="radio"
-                  id="answerD"
-                  name="answer"
-                  value="answerD"
-                  checked={userAnswers[currentQuestion] === "answerD"}
-                  onChange={handleInputChange}
-                />
-                <label htmlFor="answerD">
-                  {questions[currentQuestion]?.answerD}
-                </label>
-              </div>
+              <div className="question-answers">
+  <input
+    type="radio"
+    id="answerA"
+    name="answer"
+    value="answerA"
+    checked={userAnswers[currentQuestion] === "answerA"}
+    onChange={handleInputChange}
+    className="answer-radio"
+  />
+  <label htmlFor="answerA" className="answer-label">
+    {questions[currentQuestion]?.answerA}
+  </label>
+  <br />
+  <input
+    type="radio"
+    id="answerB"
+    name="answer"
+    value="answerB"
+    checked={userAnswers[currentQuestion] === "answerB"}
+    onChange={handleInputChange}
+    className="answer-radio"
+  />
+  <label htmlFor="answerB" className="answer-label">
+    {questions[currentQuestion]?.answerB}
+  </label>
+  <br />
+  <input
+    type="radio"
+    id="answerC"
+    name="answer"
+    value="answerC"
+    checked={userAnswers[currentQuestion] === "answerC"}
+    onChange={handleInputChange}
+    className="answer-radio"
+  />
+  <label htmlFor="answerC" className="answer-label">
+    {questions[currentQuestion]?.answerC}
+  </label>
+  <br />
+  <input
+    type="radio"
+    id="answerD"
+    name="answer"
+    value="answerD"
+    checked={userAnswers[currentQuestion] === "answerD"}
+    onChange={handleInputChange}
+    className="answer-radio"
+  />
+  <label htmlFor="answerD" className="answer-label">
+    {questions[currentQuestion]?.answerD}
+  </label>
+</div>
             ) : (
               <input
                 type="text"
                 name="answer"
+                className="answer-box"
                 value={userAnswers[currentQuestion] || ""}
                 onChange={handleInputChange}
               />
@@ -171,6 +197,7 @@ const QuizView = () => {
                 ? "Submit"
                 : "Next"}
             </button>
+          </div>
           </div>
           </div>
         </form>

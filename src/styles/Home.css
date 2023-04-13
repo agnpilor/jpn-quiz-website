@@ -42,6 +42,7 @@
   justify-content: space-between;
   padding: 100px 0px;
   box-sizing: border-box;
+  font-family: "Dosis", sans-serif;
 }
 
 .kuizu-icon {
@@ -70,6 +71,7 @@
   font-weight: 800;
   font-size: 25px;
   padding: 20px 0px;
+
 }
 
 .kuizu-icon p {
@@ -81,27 +83,117 @@
   margin: 0px;
 }
 
+@media (max-width:1279px) { 
 
-/* Media queries for tablet and phone view */
-@media only screen and (max-width: 768px) {
-  .home-banner {
-    flex-direction: column;
+  .home-banner-left {
+    width: 60%;
   }
-  
-  .home-banner-left,
-  .home-banner-right {
-    width: 100%;
-    padding: 2rem;
-    text-align: center;
-  }
-  
+
   .home-banner img {
     max-width: 80%;
-    margin-bottom: 2rem;
+    height: auto;
+  }
+
+}
+
+@media (max-width:1137px) { 
+
+  .home-banner-left {
+    width: 60%;
+    padding: 8em;
+  }
+
+  .home-banner-left h1 {
+    font-size: 34px;
+  }
+
+  .home-banner img {
+    max-width: 80%;
+    height: auto;
+  }
+
+}
+
+@media (max-width:950px) { 
+
+  .home-banner-left {
+    width: 70%;
+    padding: 5em;
+  }
+
+  .home-banner-left h1 {
+    font-size: 30px;
+  }
+
+  .home-banner-left p {
+    font-size: 21px;
+  }
+
+  .home-banner img {
+    max-width: 90%;
+    height: auto;
+    padding-right: 20px;
+  }
+
+  .kuizu-icon h3 {
+    font-weight: 800;
+    font-size: 21px;
+    padding: 20px 0px;
+  
   }
   
+  .kuizu-icon p {
+    margin-top: 10px;
+    font-size: 18px;
+    width: 50%;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+  }
+
+}
+
+@media (max-width:950px) {
+  .home-banner-left {
+    width: 100%;
+  }
+
   .home-banner-left h1 {
-    margin-bottom: 1rem;
+    font-size: 35px;
+  }
+
+  .home-banner-left p {
+    font-size: 22px;
+  }
+
+  .home-banner-right {
+    display: none;
+  }
+}
+
+@media (max-width:768px) {
+  .kuizu-icons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kuizu-icon p{
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width:529px) {
+  .home-banner-left {
+    padding: 6.5em;
+    
+  }
+
+  .home-banner-left h1 {
+    font-size: 2.5rem;
+  }
+
+  .home-banner-left p {
+    font-size: 22px;
   }
 }
 

@@ -6,9 +6,9 @@
 
 
 .quizlist-title {
-  font-size: 40px;
+  font-size: 48px;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .quizlist-body li {
@@ -40,5 +40,16 @@ color:black;
 text-decoration: underline;
 text-transform: uppercase;
 font-weight: bolder;
+}
+
+@media (max-width:650px) {
+
+  .quiz ul{
+    padding: 0px;
+  }
+
+  .quizlist-body {
+    text-align: center;
+  }
 }
 

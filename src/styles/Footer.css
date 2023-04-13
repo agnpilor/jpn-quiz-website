@@ -1,18 +1,3 @@
-html,
-body {
-  height: 100%;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-.content {
-  flex: 1;
-}
-
 .footer {
   display: flex;
   justify-content: space-between;
@@ -24,4 +9,17 @@ body {
   /* position: fixed; */
   bottom: 0;
   width: 100%;
+}
+
+@media (max-width: 480px) {
+.footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-left {
+  padding-bottom: 20px;;
+
+}
 }

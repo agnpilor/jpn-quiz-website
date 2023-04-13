@@ -1,6 +1,32 @@
-    .quizresults-container {
+.quizresults-container {
     font-family: "Dosis", sans-serif;
     padding: 30px 102px;
     min-height: 100vh;
     text-align: center;
   }
+
+.quizresults-container h1, h2 {
+    margin-bottom: 40px;
+  }
+
+.quizresults-container h3 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.quizresult-question {
+  font-size: 20px;
+}
+
+.question-question {
+  font-size: 20px;
+}
+
+.quizresults-label {
+  font-weight: bold;
+}
+
+.result-map div:not(:last-child) {
+  padding-bottom: 20px;
+}
+

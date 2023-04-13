@@ -3,3 +3,23 @@
   padding: 30px 102px;
   min-height: 100vh;
 }
+
+.resources-body h1 {
+  font-size: 48px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.resources-body{
+  font-size: 25px;
+}
+
+.resources-body li:not(:last-child) {
+  padding-bottom: 30px;
+}
+
+.resources-body a {
+  font-weight: bold;
+  color: #D89986;
+  text-transform: uppercase;
+}
