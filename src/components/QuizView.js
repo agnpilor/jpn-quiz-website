@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ReactMarkdown from 'react-markdown';
 import Example from "./Examples"
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 
 
 const QuizView = () => {
@@ -21,15 +21,15 @@ const QuizView = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  function openModal() {
-    setModalIsOpen(true);
-  }
+  // function openModal() {
+  //   setModalIsOpen(true);
+  // }
 
-  function closeModal() {
-    setModalIsOpen(false);
-  }
+  // function closeModal() {
+  //   setModalIsOpen(false);
+  // }
 
   const fetchQuestions = async () => {
     const quizDoc = doc(db, "quizlist", "quiz", "Chapters", chapterId);
@@ -100,16 +100,7 @@ const QuizView = () => {
         <Example/>
         <form onSubmit={handleSubmit}>
           <div className="question-container">
-          <div>
-      {imageUrl && (
-        <div onClick={openModal}>
-          <img src={imageUrl} className="question-image" alt="Image Question" />
-        </div>
-      )}
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
-        <img src={imageUrl} alt="Image Question" />
-      </Modal>
-    </div>
+          {imageUrl && <img src={imageUrl} className="question-image" alt="Image Question" />}
             <p><span className="question-number">Question {currentQuestion + 1}:{" "}</span></p>
             <p className="question">
 {questions[currentQuestion]?.question && (

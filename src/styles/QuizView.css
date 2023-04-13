@@ -5,6 +5,7 @@
   
   .quiz-container {
     min-height: 100vh;
+    padding: 0px 20px
   }
 
   .quizview-title {
@@ -119,3 +120,8 @@
       }
     }
 
+    @media (max-width:898px) {
+      .question-container {
+        width: 80%;
+      }
+    }
