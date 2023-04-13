@@ -33,6 +33,14 @@
     font-family: "Unica One", cursive;
   }
 
+  .question-image {
+    width: 90%;
+    padding-bottom: 40px;
+    display: block;
+    margin: auto;
+  }
+  
+
     .question-number {
       font-weight: bolder;
       font-size: 30px;
@@ -66,13 +74,13 @@
   }
 
     input[name="answer"] {
-      width: 40%;
+      width: 50%;
       padding: 10px;
       font-size: 16px;
       border: 1px solid;
       border-radius: 6px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      margin: 20px 0px 20px 0px;
+      margin-bottom: 40px;
     }
 
 

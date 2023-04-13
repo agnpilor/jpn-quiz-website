@@ -5,6 +5,8 @@ import { db } from "../firebase";
 import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ReactMarkdown from 'react-markdown';
+import Example from "./Examples";
 
 const QuizView = () => {
   const { chapterId } = useParams();
@@ -61,11 +63,11 @@ const QuizView = () => {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       navigate("/quizresults", {
-        state: { score: score, totalQuestions: questions.length },
+        state: { score: score, totalQuestions: questions.length, userAnswers, questions },
       });
     }
   };
-
+  
   const handleInputChange = (e) => {
     setUserAnswers({
       ...userAnswers,
@@ -81,24 +83,23 @@ const QuizView = () => {
   //   strong: (props) => <strong style={{ color: "red" }}>{props.children}</strong>,
   // };
   return (
-    <div class>
+    <div>
       <Navbar />
       <div className="quiz-container">
         <h1 className="quizview-title">{title}</h1>
         <p className="quizview-description">{description}</p>
+        <div className="quizview-examples">
+          {Example}
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="question-container">
-            <p>
-              <span className="question-number">Question {currentQuestion + 1}:{" "}</span>
-              {imageUrl && <img src={imageUrl} alt="Question" />}
-              <p
-  className="question"
-  dangerouslySetInnerHTML={{
-    __html: questions[currentQuestion]?.question.toString().replace(/,/g, "<br />"),
-  }}
-/>
-
-            </p>
+          {imageUrl && <img src={imageUrl} className="question-image" alt="Image Question" />}
+            <p><span className="question-number">Question {currentQuestion + 1}:{" "}</span></p>
+            <p className="question">
+              <ReactMarkdown>
+                {questions[currentQuestion]?.question.toString().replace(",", "")}
+              </ReactMarkdown>
+              </p>
             {questions[currentQuestion]?.answerA ? (
               <div>
                 <input
@@ -157,7 +158,7 @@ const QuizView = () => {
                 onChange={handleInputChange}
               />
             )}
-             <div className="button-container">
+          <div className="button-container">
             <button className="quiz-button"
               type="button"
               onClick={handlePrevQuestion}
