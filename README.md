@@ -3,10 +3,7 @@
 ## Project Description:
 
 Kuizi is a Japanese learning website that offers interactive quizzes that can help Japanese learners. Kuizu will offer
-exercises such as multiple choice to fill in the blank, and these will be correspond to the different section of the Genki I textbook. In my university the current website the Japanese course uses is a bit outdated and I wanted to improve on that.
-
-The Kuizu website will offer keeping track of quiz scores for registered users so that users can see their progress. This website will
-be fairly simple but I hope for it to be a great learning tool.
+exercises such as multiple choice to fill in the blank, and these will be correspond to the different section of the Genki I textbook.
 
 This project will be created using React.js for the frontend and Firebase for the database side.
 
